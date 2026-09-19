@@ -73,7 +73,7 @@ export default function SystemPanel({ system, scanning, onRescan }: Props) {
               value={system.jarvisIndex}
               max={1300}
               display={`${system.jarvisIndex}`}
-              label="Jarvis Idx"
+              label="Jovis Idx"
               color="#5aa8ff"
             />
           </div>

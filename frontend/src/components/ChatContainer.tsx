@@ -24,8 +24,8 @@ export default function ChatContainer() {
     {
       id: 'system-welcome',
       role: 'jarvis',
-      content: "J.A.R.V.I.S. neural link online. All telemetry systems nominal, sir. How may I assist you?",
-      text: "J.A.R.V.I.S. neural link online. All telemetry systems nominal, sir. How may I assist you?",
+      content: "J.O.V.I.S. neural link online. All telemetry systems nominal, sir. How may I assist you?",
+      text: "J.O.V.I.S. neural link online. All telemetry systems nominal, sir. How may I assist you?",
       timestamp: Date.now(),
       time: Date.now(),
     },
@@ -167,7 +167,7 @@ export default function ChatContainer() {
       if (!clean) return
 
       // Handle simple "Jarvis" wake call
-      if (clean.toLowerCase() === 'jarvis') {
+      if (clean.toLowerCase() === 'jovis') {
         setThinking(true)
         setTimeout(() => {
           const ack = "Yes, sir? I am online and listening."
@@ -317,7 +317,7 @@ export default function ChatContainer() {
         <div className="flex items-center gap-3">
           <div className="h-3 w-3 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_10px_#38e1ff]" />
           <h1 className="font-display text-base font-bold tracking-[0.25em] text-cyan-200 text-glow">
-            J.A.R.V.I.S.
+            J.O.V.I.S.
           </h1>
           <span className="hidden sm:inline-block text-[10px] uppercase tracking-widest text-cyan-400/60 border-l border-cyan-400/20 pl-3">
             Realtime Neural Core
@@ -333,7 +333,7 @@ export default function ChatContainer() {
           {/* Wake word toggle */}
           <button
             onClick={handleWakeToggle}
-            title={wakeMode ? 'Wake word active (Say "Jarvis")' : 'Wake word inactive'}
+            title={wakeMode ? 'Wake word active (Say "Jovis")' : 'Wake word inactive'}
             className={`flex items-center gap-1 px-2.5 py-1 rounded border text-[10px] font-mono tracking-wider transition ${
               wakeMode
                 ? 'border-emerald-400/50 bg-emerald-500/10 text-emerald-300 shadow-[0_0_10px_rgba(52,211,153,0.2)]'
@@ -349,7 +349,7 @@ export default function ChatContainer() {
               if (speech.speaking) speech.cancelSpeak()
               setMuted((m) => !m)
             }}
-            title={muted ? 'Jarvis voice muted' : 'Jarvis voice unmuted'}
+            title={muted ? 'Jovis voice muted' : 'Jovis voice unmuted'}
             className={`p-1.5 rounded border text-xs transition ${
               muted
                 ? 'border-red-400/40 bg-red-500/10 text-red-300'

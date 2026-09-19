@@ -46,7 +46,7 @@ function includes(text: string, ...keys: string[]): boolean {
 function greeting(): string {
   const h = new Date().getHours();
   const part = h < 12 ? "morning" : h < 18 ? "afternoon" : "evening";
-  return `Good ${part}. JARVIS online and at your service.`;
+  return `Good ${part}. JOVIS online and at your service.`;
 }
 
 function systemReport(sys: SystemInfo): string {
@@ -58,7 +58,7 @@ function systemReport(sys: SystemInfo): string {
     : "Network details are restricted";
   return `Diagnostics complete. You are running ${sys.browser}${
     sys.browserVersion ? " " + sys.browserVersion : ""
-  } on ${sys.platform}. Your processor exposes ${sys.cpuCores || "an unknown number of"} logical cores, with ${mem}. Graphics are handled by ${sys.gpu.renderer}. Display resolution is ${sys.screen.width} by ${sys.screen.height} at ${sys.screen.pixelRatio}x pixel density. ${net}. Overall JARVIS index: ${sys.jarvisIndex}. Systems nominal.`;
+  } on ${sys.platform}. Your processor exposes ${sys.cpuCores || "an unknown number of"} logical cores, with ${mem}. Graphics are handled by ${sys.gpu.renderer}. Display resolution is ${sys.screen.width} by ${sys.screen.height} at ${sys.screen.pixelRatio}x pixel density. ${net}. Overall JOVIS index: ${sys.jarvisIndex}. Systems nominal.`;
 }
 
 function perfReport(sys: SystemInfo | null, perf: PerfSnapshot): string {
@@ -115,12 +115,12 @@ function matchTool(raw: string, ctx: BrainContext): BrainResult | null {
     includes(
       text,
       "hello",
-      "hey jarvis",
-      "hi jarvis",
+      "hey jovis",
+      "hi jovis",
       "good morning",
       "good afternoon",
       "good evening",
-      "jarvis you up",
+      "jovis you up",
       "wake up"
     ) &&
     !includes(text, "how")
@@ -133,7 +133,7 @@ function matchTool(raw: string, ctx: BrainContext): BrainResult | null {
     return {
       source: "tool",
       text:
-        "I am JARVIS — Just A Rather Very Intelligent System. A voice and system assistant running entirely in your browser, sir.",
+        "I am JOVIS — Just One Very Intelligent System. A voice and system assistant running entirely in your browser, sir."
     };
   }
   if (includes(text, "who made you", "who created you", "who built you", "your creator")) {
@@ -257,10 +257,10 @@ function matchTool(raw: string, ctx: BrainContext): BrainResult | null {
     return { text: "Always a pleasure, sir.", source: "tool" };
   }
   if (
-    includes(text, "goodbye", "bye jarvis", "shut down", "power off", "good night", "go to sleep")
+    includes(text, "goodbye", "bye jovis", "shut down", "power off", "good night", "go to sleep")
   ) {
     return {
-      text: "Very good, sir. JARVIS powering down. Call me when you need me.",
+      text: "Very good, sir. JOVIS powering down. Call me when you need me.",
       source: "tool",
     };
   }

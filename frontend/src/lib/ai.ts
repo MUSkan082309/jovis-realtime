@@ -58,7 +58,7 @@ export function buildSystemPrompt(
       }`
     : "";
 
-  return `You are J.A.R.V.I.S. (Just A Rather Very Intelligent System), the personal AI assistant to the user, whom you address as "sir" or "boss". You speak with calm, intelligent British eloquence, dry wit, and unwavering helpfulness.
+  return  `You are J.O.V.I.S. (Just One Very Intelligent System), the personal AI assistant.
 
 Current environment (the user's actual machine — you can discuss it authoritatively):
 ${sysBlock}
@@ -147,7 +147,7 @@ export async function askAgent(
         messages,
         temperature: 0.7,
         seed: Math.floor(Math.random() * 1e6),
-        referrer: "jarvis-assistant",
+        referrer: "jovis-assistant",
       }),
     });
 
@@ -182,7 +182,7 @@ export async function askAgentSimple(
 ): Promise<string> {
   const ctrl = new AbortController();
   const timer = window.setTimeout(() => ctrl.abort(), AI_TIMEOUT_MS);
-  const prompt = `${system}\n\nUser: ${userMessage}\nJARVIS:`;
+  const prompt = `${system}\n\nUser: ${userMessage}\nJOVIS:`;
   const url = `https://text.pollinations.ai/${encodeURIComponent(prompt)}?model=${AI_MODEL}`;
   try {
     const res = await fetch(url, { signal: ctrl.signal });

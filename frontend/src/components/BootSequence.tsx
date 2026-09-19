@@ -97,10 +97,10 @@ export default function BootSequence({ progress, system, onDone }: Props) {
         </div>
 
         <h1 className="font-display text-center text-2xl font-black tracking-[0.3em] text-cyan-200 text-glow sm:text-3xl">
-          J.A.R.V.I.S.
+          J.O.V.I.S.
         </h1>
         <p className="mb-6 text-center text-[10px] uppercase tracking-[0.35em] text-cyan-400/60">
-          Just A Rather Very Intelligent System
+          Just One Very Intelligent System
         </p>
 
         {/* Progress */}
@@ -134,7 +134,7 @@ export default function BootSequence({ progress, system, onDone }: Props) {
             ))}
           {progress >= 100 && (
             <div className="mt-2 animate-float-up text-emerald-300">
-              <span className="text-emerald-400">» </span>J.A.R.V.I.S. ONLINE. WELCOME BACK, SIR.
+              <span className="text-emerald-400">» </span>J.O.V.I.S. ONLINE. WELCOME BACK, SIR.
             </div>
           )}
         </div>

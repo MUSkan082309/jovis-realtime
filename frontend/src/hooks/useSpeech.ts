@@ -95,13 +95,13 @@ export function useSpeech({ onTranscript }: UseSpeechOptions = {}) {
 
         if (wakeActiveRef.current) {
           const lower = phrase.toLowerCase();
-          if (lower.includes("jarvis")) {
+          if (lower.includes("jovis")) {
             // Strip wake word + filler, forward the remainder.
             const cmd = lower
-              .replace(/^.*?jarvis[\s,]*/, "")
+              .replace(/^.*?jovis[\s,]*/, "")
               .replace(/^(please|hey|can you|could you|would you)[\s,]*/i, "")
               .trim();
-            callbackRef.current?.(cmd || "jarvis");
+            callbackRef.current?.(cmd || "jovis");
           }
         } else {
           wantListeningRef.current = false;
@@ -164,7 +164,7 @@ export function useSpeech({ onTranscript }: UseSpeechOptions = {}) {
     }
   }, [createRecognition, listening, speaking]);
 
-  /** Continuous hands-free mode triggered by the wake word "Jarvis". */
+  /** Continuous hands-free mode triggered by the wake word "Jovis". */
   const startWakeMode = useCallback(() => {
     setError(null);
     if (listening) return false;

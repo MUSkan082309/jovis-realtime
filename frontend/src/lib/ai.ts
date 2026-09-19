@@ -21,7 +21,7 @@ export function aiAvailable(): boolean {
   return typeof navigator !== "undefined" ? navigator.onLine : true;
 }
 
-/** Build the JARVIS persona + live system context for the model. */
+/** Build the JOVIS persona + live system context for the model. */
 export function buildSystemPrompt(
   system: SystemInfo | null,
   perf: PerfSnapshot | null

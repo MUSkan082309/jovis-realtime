@@ -47,7 +47,7 @@ async def voice_websocket_endpoint(websocket: WebSocket):
                         
                         # 2. Gemini Response via ai_service
                         response_text = await ai_service.get_chat_response(transcript)
-                        logger.info(f"JARVIS response: {response_text}")
+                        logger.info(f"JOVIS response: {response_text}")
                         
                         # 3. TTS synthesis via Edge-TTS
                         await websocket.send_json({"type": "status", "content": "speaking"})

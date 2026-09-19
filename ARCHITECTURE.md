@@ -1,14 +1,15 @@
-# J.A.R.V.I.S. — Realtime AI Assistant System Architecture
+# J.O.V.I.S. — Realtime AI Assistant System Architecture
+
 
 ## 1. System Overview
-J.A.R.V.I.S. is an ultra-responsive, full-stack voice assistant and cybernetic cockpit. Users can interact via natural voice conversation, streaming text chat, and a dynamic HTML5 Canvas HUD. The system features a zero-marginal-cost pipeline leveraging Google's **Gemini 2.0 Flash**, Microsoft **Edge-TTS**, and a singleton-cached **Whisper** Speech-To-Text model.
+J.O.V.I.S. is an ultra-responsive, full-stack voice assistant and cybernetic cockpit. Users can interact via natural voice conversation, streaming text chat, and a dynamic HTML5 Canvas HUD. The system features a zero-marginal-cost pipeline leveraging Google's **Gemini 2.0 Flash**, Microsoft **Edge-TTS**, and a singleton-cached **Whisper** Speech-To-Text model.
 
 ---
 
 ## 2. Core Tech Stack
 - **Frontend:** React 18 + Vite + TypeScript + HTML5 Canvas API + Web Audio Analyser
 - **Backend:** Python 3.11 + FastAPI + WebSockets + Uvicorn
-- **AI Intelligence:** Google GenAI SDK (`gemini-2.0-flash`) with J.A.R.V.I.S. persona
+- **AI Intelligence:** Google GenAI SDK (`gemini-2.0-flash`) with J.O.V.I.S. persona
 - **Speech-To-Text (STT):** OpenAI Whisper (local execution with singleton in-memory caching)
 - **Text-To-Speech (TTS):** Microsoft Edge-TTS neural audio synthesis (`en-US-JennyNeural`)
 - **Containerization:** Docker + Multi-stage Nginx Reverse Proxy + Docker Compose

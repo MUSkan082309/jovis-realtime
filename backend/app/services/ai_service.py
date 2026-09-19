@@ -6,7 +6,7 @@ from app.config import settings
 
 logger = logging.getLogger(__name__)
 
-JARVIS_SYSTEM_PROMPT = (
+JOVIS_SYSTEM_PROMPT = (
     "You are J.A.R.V.I.S. (Just A Rather Very Intelligent System), the personal AI assistant "
     "to the user, whom you address as 'sir' or 'boss'. You speak with calm, intelligent "
     "British eloquence, dry wit, and concise helpfulness. "
@@ -61,7 +61,7 @@ class AIService:
         try:
             contents = self._build_contents(message, history)
             config = types.GenerateContentConfig(
-                system_instruction=JARVIS_SYSTEM_PROMPT,
+                system_instruction=JOVIS_SYSTEM_PROMPT,
                 temperature=0.7,
             )
             response = self.client.models.generate_content(
@@ -81,7 +81,7 @@ class AIService:
         try:
             contents = self._build_contents(message, history)
             config = types.GenerateContentConfig(
-                system_instruction=JARVIS_SYSTEM_PROMPT,
+                system_instruction=JOVIS_SYSTEM_PROMPT,
                 temperature=0.7,
             )
             for chunk in self.client.models.generate_content_stream(

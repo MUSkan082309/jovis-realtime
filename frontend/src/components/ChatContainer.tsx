@@ -166,7 +166,7 @@ export default function ChatContainer() {
       const clean = rawText.trim()
       if (!clean) return
 
-      // Handle simple "Jarvis" wake call
+      // Handle simple "Jovis" wake call
       if (clean.toLowerCase() === 'jovis') {
         setThinking(true)
         setTimeout(() => {

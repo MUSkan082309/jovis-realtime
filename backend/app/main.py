@@ -30,7 +30,7 @@ app.include_router(voice_ws.router, prefix="/ws", tags=["websocket"])
 
 @app.get("/health")
 async def health_check():
-    return {"status": "healthy", "service": "jarvis-backend"}
+    return {"status": "healthy", "service": "jovis-backend"}
 
 if __name__ == "__main__":
     import uvicorn

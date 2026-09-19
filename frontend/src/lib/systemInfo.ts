@@ -163,7 +163,7 @@ function readFeatures(): SystemFeatures {
   };
 }
 
-/** Heuristic performance score so Jarvis can "rate" the machine. */
+/** Heuristic performance score so Jovis can "rate" the machine. */
 function computeJarvisIndex(
   cores: number,
   memory: number,

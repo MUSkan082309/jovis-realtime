@@ -131,7 +131,7 @@ export default function ArcReactor({ mode, levelRef, size = 280 }: Props) {
       ctx.arc(cx, cy, coreR * 1.8, 0, Math.PI * 2);
       ctx.fill();
 
-      // Inner triangle motif (Jarvis style)
+      // Inner triangle motif (Jovis style)
       ctx.save();
       ctx.translate(cx, cy);
       ctx.rotate(t * 0.4);

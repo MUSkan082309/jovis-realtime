@@ -1,11 +1,11 @@
-🤖 J.A.R.V.I.S. — Realtime AI Voice Assistant & Cockpit
+🤖 J.O.V.I.S. — Realtime AI Voice Assistant & Cockpit
 
 
 An ultra-low-latency, full-stack realtime voice assistant and cybernetic cockpit inspired by Tony Stark's iconic J.A.R.V.I.S. Engineered with Google Gemini 2.0 Flash for fast reasoning, Microsoft Edge-TTS for human-like neural speech synthesis, singleton cached OpenAI Whisper for speech-to-text, and a custom HTML5 Canvas Arc Reactor that pulsates reactively to live microphone frequencies.
 
 🏗️ System Architecture
 
-                                  J.A.R.V.I.S. ECOSYSTEM
+                                  J.O.V.I.S. ECOSYSTEM
  ┌─────────────────────────────────────────────────────────────────────────────────┐
  │                               FRONTEND (React + Vite)                           │
  │  ┌───────────────────────┐   ┌───────────────────────┐   ┌───────────────────┐  │
@@ -58,7 +58,7 @@ Pipeline Stage
 
 Legacy Approach
 
-J.A.R.V.I.S. Architecture
+J.O.V.I.S Architecture
 
 Latency Delta
 
@@ -115,8 +115,8 @@ Google Gemini API Key (Free)
 Option A: One-Command Docker Launch (Recommended)
 
 # 1. Clone the repository
-git clone https://github.com/MUSkan082309/jarvis-realtime.git
-cd jarvis-realtime
+git clone https://github.com/MUSkan082309/jovis-realtime.git
+cd jovis-realtime
 
 # 2. Set your Gemini API Key and build
 export GOOGLE_API_KEY="your_api_key_here"  # Windows pwsh: $env:GOOGLE_API_KEY="your_api_key_here"
@@ -158,7 +158,7 @@ npm run dev
 
 REST Endpoints
 
-GET /health: Health status probe ({"status": "healthy", "service": "jarvis-backend"}).
+GET /health: Health status probe ({"status": "healthy", "service": "jovis-backend"}).
 
 POST /api/chat: Send text prompt with conversation history.
 
@@ -178,7 +178,7 @@ WebSocket Protocols
 
 /ws/chat: Bidirectional text streaming.
 
-Client sends: {"type": "message", "content": "Hello Jarvis"}
+Client sends: {"type": "message", "content": "Hello Jovis"}
 
 Server yields: {"type": "token", "content": "Hello"} $\to$ {"type": "done"}
 
@@ -204,7 +204,7 @@ npm run build
 
 📜 Project Structure
 
-jarvis-realtime/
+jovis-realtime/
 ├── backend/
 │   ├── app/
 │   │   ├── api/             # REST endpoints (chat, voice)

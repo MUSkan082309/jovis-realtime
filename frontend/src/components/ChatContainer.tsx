@@ -3,9 +3,7 @@ import MessageList from './MessageList'
 import MessageInput from './MessageInput'
 import VoiceButton from './VoiceButton'
 import ArcReactor from './ArcReactor'
-import SystemPanel from './SystemPanel'
 import PerformancePanel from './PerformancePanel'
-import CommandHints from './CommandHints'
 import { useWebSocket } from '../hooks/useWebSocket'
 import { useAudioPlayer } from '../hooks/useAudioPlayer'
 import { usePerformance } from '../hooks/usePerformance'
@@ -32,7 +30,6 @@ export default function ChatContainer() {
   ])
   const [thinking, setThinking] = useState(false)
   const [aiStatus, setAiStatus] = useState('')
-  const [hudMode, setHudMode] = useState(true)
   const [muted, setMuted] = useState(false)
   const [wakeMode, setWakeMode] = useState(false)
   const [system, setSystem] = useState<SystemInfo | null>(null)
@@ -359,14 +356,6 @@ export default function ChatContainer() {
             {muted ? '🔇' : '🔊'}
           </button>
 
-          {/* HUD Mode Toggle Button */}
-          <button
-            onClick={() => setHudMode((v) => !v)}
-            className="flex items-center gap-1.5 px-3 py-1 rounded border border-cyan-400/30 text-[11px] font-display uppercase tracking-wider text-cyan-300 hover:bg-cyan-400/10 transition"
-          >
-            <span>{hudMode ? '◈ Cockpit HUD' : '◇ Minimal Chat'}</span>
-          </button>
-
           {/* Connection badge */}
           <div className="flex items-center gap-2 border border-cyan-400/20 bg-cyan-400/5 px-2.5 py-1 rounded-full text-xs">
             <div
@@ -384,54 +373,59 @@ export default function ChatContainer() {
       </header>
 
       {/* Main Cockpit Area */}
-      <div className="flex-1 flex flex-col overflow-y-auto overflow-x-hidden relative hud-grid min-h-0">
+      <div className="flex-1 flex flex-col overflow-hidden relative hud-grid min-h-0 bg-[radial-gradient(circle_at_50%_25%,rgba(0,200,255,0.10),transparent_35%),linear-                      gradient(180deg,#020817_0%,#02050d_100%)]">
         {/* Top telemetry & Arc Reactor grid when HUD mode is active */}
-        {hudMode && (
-          <div className="shrink-0 p-4 border-b border-cyan-400/15 bg-slate-950/50 backdrop-blur-sm">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-              {/* Left: System Panel */}
-              <div className="hidden md:block">
-                <SystemPanel system={system} scanning={scanning} onRescan={scanSystem} />
-              </div>
+        {/* Futuristic Telemetry Deck */}
+        {/* Futuristic Telemetry Deck */}
+<div className="shrink-0 px-4 sm:px-6 pt-4 pb-2">
+  <div className="max-w-6xl mx-auto">
 
-              {/* Center: Arc Reactor */}
-              <div className="flex flex-col items-center justify-center py-1">
-                <div className="relative">
-                  <ArcReactor
-                    mode={voiceStatus}
-                    levelRef={speech.listening ? micLevelRef : fallbackLevelRef}
-                    size={210}
-                  />
-                </div>
-                <div className="mt-1 flex items-center gap-2">
-                  <span className="text-[10px] uppercase tracking-widest text-cyan-300/60">REACTOR:</span>
-                  <span className="font-display text-xs font-bold uppercase tracking-wider text-cyan-200 text-glow">
-                    {voiceStatus}
-                  </span>
-                  {speech.interim && (
-                    <span className="text-[11px] font-mono text-cyan-300/90 italic truncate max-w-[200px]">
-                      "{speech.interim}"
-                    </span>
-                  )}
-                </div>
-              </div>
+    {/* Performance + Neural Core */}
+    <div className="flex flex-col md:flex-row items-stretch gap-4">
 
-              {/* Right: Performance Panel */}
-              <div className="hidden md:block">
-                <PerformancePanel snapshot={snapshot} history={perfHistory} />
-              </div>
+      {/* Performance Dashboard */}
+      <div className="flex-1 min-w-0 rounded-xl border border-cyan-400/20 bg-slate-950/50 backdrop-blur-md shadow-[0_0_30px_rgba(0,200,255,0.06)] overflow-hidden">
+        <PerformancePanel
+          snapshot={snapshot}
+          history={perfHistory}
+        />
+      </div>
+
+      {/* Neural Core */}
+      <div className="md:w-[320px] lg:w-[360px] rounded-xl border border-cyan-400/20 bg-slate-950/40 backdrop-blur-md relative overflow-hidden">
+
+        {/* Ambient glow */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-40 h-40 rounded-full bg-cyan-400/10 blur-3xl animate-pulse" />
+        </div>
+
+        <div className="relative h-full min-h-[300px] flex flex-col items-center justify-center">
+
+          <ArcReactor
+            mode={voiceStatus}
+            levelRef={micLevelRef}
+          />
+
+          <div className="mt-3 text-center">
+            <div className="text-[9px] font-mono tracking-[0.4em] text-cyan-400/60">
+              NEURAL CORE
+            </div>
+
+            <div className="text-xs font-mono tracking-[0.2em] text-cyan-200/80 mt-1">
+              {thinking ? 'PROCESSING' : 'J.O.V.I.S. // READY'}
             </div>
           </div>
-        )}
 
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>      
+        
         {/* Message Log */}
         <div className="flex-1 overflow-y-auto min-h-0 bg-black/30">
           <MessageList messages={messages} isStreaming={thinking} />
-        </div>
-
-        {/* Command Hints Bar */}
-        <div className="px-6 py-2 border-t border-cyan-400/10 bg-slate-950/40 backdrop-blur-sm overflow-x-auto">
-          <CommandHints onCommand={processUserTurn} />
         </div>
 
         {/* Console Input Bar */}

@@ -384,7 +384,7 @@ export default function ChatContainer() {
       </header>
 
       {/* Main Cockpit Area */}
-      <div className="flex-1 flex flex-col overflow-hidden relative hud-grid">
+      <div className="flex-1 flex flex-col overflow-y-auto overflow-x-hidden relative hud-grid min-h-0">
         {/* Top telemetry & Arc Reactor grid when HUD mode is active */}
         {hudMode && (
           <div className="shrink-0 p-4 border-b border-cyan-400/15 bg-slate-950/50 backdrop-blur-sm">
